@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="BHP Medan">
+  <rect width="512" height="512" rx="112" fill="#062f53"/>
+  <rect x="28" y="28" width="456" height="456" rx="88" fill="none" stroke="#1676b8" stroke-width="20"/>
+  <path d="M136 151h240v24H136zm120-57 105 45H151zM160 190h32v128h-32zm80 0h32v128h-32zm80 0h32v128h-32zM132 334h248v30H132zm-24 47h296v37H108z" fill="#dda82b"/>
+  <text x="256" y="475" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="47" font-weight="700" letter-spacing="8">BHP</text>
+</svg>

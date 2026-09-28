@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Survei Petugas Pelayanan | BHP Medan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="inner-page building-background-page">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html"><span class="brand-mark">BHP</span><span class="brand-text"><strong>Balai Harta Peninggalan</strong><small>Medan</small></span></a>
+      <button class="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+      <nav class="main-nav" id="main-nav"><a href="index.html#beranda">Beranda</a><a class="active" aria-current="page" href="index.html#layanan">Layanan</a><a href="index.html#tentang">Tentang Kami</a><a href="index.html#kontak">Kontak</a></nav>
+    </div>
+  </header>
+  <div class="container service-back-wrap">
+    <a class="service-back-button" href="survei.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10.7 17.3-1.4 1.4L2.6 12l6.7-6.7 1.4 1.4L6.4 11H21v2H6.4l4.3 4.3Z"></path></svg><span>Kembali</span></a>
+  </div>
+  <main>
+    <section class="page-hero service-form-hero"><div class="container"><span class="kicker page-hero-kicker">Survei petugas pelayanan</span>
+      <h1>Bagaimana pengalaman pelayanan Anda?</h1><p>Pilih petugas yang melayani, kemudian beri nilai 1&ndash;5 bintang pada setiap pernyataan.</p></div></section>
+    <section class="page-content service-form-content"><div class="container">
+      <form class="staff-survey standalone-survey service-form-card" id="staff-survey-form">
+        <fieldset class="staff-picker"><legend>Pilih petugas pelayanan <span>*</span></legend><div class="staff-list" id="staff-list"></div></fieldset>
+        <aside class="rating-scale" aria-label="Keterangan skala penilaian"><div>
+          <span><b aria-label="1 bintang">&#9733;</b>Sangat Tidak Setuju</span>
+          <span><b aria-label="2 bintang">&#9733;&#9733;</b>Tidak Setuju</span>
+          <span><b aria-label="3 bintang">&#9733;&#9733;&#9733;</b>Cukup</span>
+          <span><b aria-label="4 bintang">&#9733;&#9733;&#9733;&#9733;</b>Setuju</span>
+          <span><b aria-label="5 bintang">&#9733;&#9733;&#9733;&#9733;&#9733;</b>Sangat Setuju</span>
+        </div></aside>
+        <div class="rating-sections" id="rating-sections"></div>
+        <div class="survey-submit"><p>Pastikan seluruh pernyataan sudah dinilai sebelum dikirim.</p>
+          <button class="button button-primary" type="submit">Kirim Penilaian <span>&rarr;</span></button></div>
+        <div class="form-message" id="form-message" role="status" aria-live="polite"></div>
+      </form>
+    </div></section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

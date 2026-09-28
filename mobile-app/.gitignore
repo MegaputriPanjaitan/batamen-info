@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.env.local
+.env.production.local
+android/.gradle/
+.gradle-home/
+android/local.properties
+ios/App/Pods/
+*.jks
+*.keystore

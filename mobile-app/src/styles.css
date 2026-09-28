@@ -1,0 +1,52 @@
+:root{font-family:"Segoe UI",Arial,sans-serif;color:#172f62;background:#eaf1f6;font-synthesis:none;--navy:#172f62;--blue:#1164ad;--gold:#ffca05;--green:#18866f;--red:#cf4f55;--muted:#667990;--line:#d7e3ec}
+*{box-sizing:border-box}
+html{min-width:320px;background:#eaf1f6}
+body{min-height:100vh;margin:0;background:linear-gradient(180deg,#eaf1f6,#f8fafc);-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.app-shell{width:min(100%,720px);min-height:100vh;margin:auto;padding:calc(16px + env(safe-area-inset-top)) 16px calc(22px + env(safe-area-inset-bottom))}
+.app-header{min-height:66px;display:grid;grid-template-columns:46px 1fr auto;align-items:center;gap:11px;padding:9px 12px;border:1px solid rgba(255,255,255,.8);border-radius:18px;background:rgba(255,255,255,.88);box-shadow:0 10px 28px rgba(6,47,83,.1);backdrop-filter:blur(12px)}
+.app-header img{width:46px;height:46px;object-fit:contain;border-radius:10px}
+.app-header strong,.app-header small{display:block}
+.app-header strong{font-size:.88rem;line-height:1.2}
+.app-header small{text-transform:uppercase;color:#e7ad00;font-size:.62rem;font-weight:800;letter-spacing:.2em;margin-top:3px}
+.connection-status{display:flex;align-items:center;gap:5px;color:var(--green);font-size:.64rem;font-weight:800}
+.connection-status:before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 0 4px rgba(24,134,111,.1)}
+.connection-status.offline{color:var(--red)}
+.hero-panel{position:relative;min-height:240px;margin:16px 0;padding:28px 25px;display:flex;align-items:flex-end;overflow:hidden;border-radius:26px;color:#fff;background:linear-gradient(135deg,#172f62,#075d98 68%,#18866f);box-shadow:0 20px 45px rgba(6,47,83,.2)}
+.hero-panel:before{content:"";position:absolute;width:210px;height:210px;right:-78px;top:-105px;border:34px solid rgba(255,202,5,.17);border-radius:50%}
+.hero-panel>div{position:relative;z-index:1;max-width:490px}
+.eyebrow{color:var(--gold);font-size:.7rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+.hero-panel h1{margin:10px 0 10px;font-size:clamp(2rem,9vw,3.5rem);line-height:1.02;letter-spacing:-.055em}
+.hero-panel p{max-width:470px;margin:0;color:#d9e8f4;font-size:.84rem;line-height:1.6}
+.hero-mark{position:absolute;right:20px;bottom:-10px;color:rgba(255,255,255,.07);font-size:5rem;font-weight:900}
+.services{padding:8px 2px}
+.section-heading{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:13px}
+.section-heading span{color:var(--blue);font-size:.65rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+.section-heading h2{margin:3px 0 0;font-size:1.45rem;letter-spacing:-.03em}
+.section-heading button{min-height:38px;padding:7px 10px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--blue);font-size:.65rem;font-weight:700;cursor:pointer}
+.service-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.service-card{position:relative;min-height:170px;padding:17px;display:flex;align-items:flex-start;flex-direction:column;border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:18px;background:#fff;box-shadow:0 10px 24px rgba(6,47,83,.08);transition:transform .2s,box-shadow .2s}
+.service-card:active{transform:scale(.98)}
+.service-card.blue{--accent:var(--blue)}.service-card.gold{--accent:#d6a500}.service-card.green{--accent:var(--green)}.service-card.red{--accent:var(--red)}
+.service-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;color:var(--accent);background:color-mix(in srgb,var(--accent) 11%,white)}
+.service-icon svg{width:23px;height:23px;fill:currentColor}
+.service-copy{margin-top:18px}
+.service-copy strong,.service-copy small{display:block}
+.service-copy strong{font-size:.92rem}
+.service-copy small{margin-top:5px;color:var(--muted);font-size:.68rem;line-height:1.45}
+.service-arrow{position:absolute;right:15px;top:17px;color:var(--accent);font-weight:900}
+.server-note{margin-top:16px;padding:13px 15px;display:flex;align-items:center;gap:11px;border:1px dashed #b6c9d7;border-radius:14px;background:rgba(255,255,255,.55)}
+.server-note>span{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--navy);color:#fff;font-weight:800}
+.server-note p,.server-note strong,.server-note small{display:block;margin:0}
+.server-note strong{font-size:.72rem}.server-note small{margin-top:2px;color:var(--muted);font-size:.62rem;overflow-wrap:anywhere}
+footer{padding:24px 4px 4px;color:var(--muted);font-size:.62rem;text-align:center}
+@media(max-width:420px){.app-shell{padding-inline:12px}.app-header strong{font-size:.76rem}.connection-status{font-size:0}.hero-panel{min-height:220px;padding:24px 20px}.hero-panel h1{font-size:2.15rem}.service-list{gap:9px}.service-card{min-height:165px;padding:14px}.service-copy{margin-top:14px}.service-copy strong{font-size:.8rem}.service-copy small{font-size:.62rem}}
+@media(max-width:340px){.service-list{grid-template-columns:1fr}.service-card{min-height:140px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Hilangkan tap highlight bawaan Android tanpa menghapus fokus keyboard. */
+a,button,[role="button"],.service-card{
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+}
