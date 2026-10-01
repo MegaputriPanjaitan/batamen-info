@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-#[Fillable(['staff_member_id', 'respondent_ip', 'user_agent'])]
+#[Fillable(['staff_member_id', 'respondent_phone', 'respondent_phone_hash', 'service_slug', 'survey_date', 'respondent_ip', 'user_agent'])]
 class SurveyResponse extends Model
 {
     /** @use HasFactory<SurveyResponseFactory> */
@@ -23,5 +23,13 @@ class SurveyResponse extends Model
     public function ratings(): HasMany
     {
         return $this->hasMany(SurveyRating::class);
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'respondent_phone' => 'encrypted',
+            'survey_date' => 'date',
+        ];
     }
 }

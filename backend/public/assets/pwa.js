@@ -1,53 +1,57 @@
 let installPrompt;
 const installButton = document.querySelector('[data-pwa-install]');
 const installPanel = document.querySelector('[data-pwa-install-panel]');
-const installDismissButton = document.querySelector('[data-pwa-install-dismiss]');
-const iosInstallButton = document.querySelector('[data-pwa-ios-install]');
+const installStatus = document.querySelector('[data-pwa-install-status]');
 const iosInstructions = document.querySelector('[data-pwa-ios-instructions]');
-const isNativeApp = Boolean(window.Capacitor?.isNativePlatform?.());
-const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
 const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent);
-
-const hideInstallPanel = () => {
-  if (installPanel) installPanel.hidden = true;
-};
+const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+const installRecorded = localStorage.getItem('pasti-batamen-installed') === 'true';
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => navigator.serviceWorker.register('/service-worker.js'));
 }
 
+if (isStandalone || installRecorded) {
+  if (installPanel) installPanel.hidden = true;
+  if (isStandalone) localStorage.setItem('pasti-batamen-installed', 'true');
+} else if (isIos) {
+  if (installPanel) installPanel.hidden = false;
+  if (installButton) {
+    installButton.disabled = false;
+    installButton.setAttribute('aria-label', 'Lihat cara memasang PASTI Batamen');
+    installButton.setAttribute('title', 'Lihat cara memasang PASTI Batamen');
+  }
+} else if (installStatus && !window.isSecureContext) {
+  installStatus.textContent = 'Fitur instalasi aktif setelah website menggunakan HTTPS.';
+}
+
 window.addEventListener('beforeinstallprompt', (event) => {
-  if (!installButton || isNativeApp || isStandalone) return;
   event.preventDefault();
   installPrompt = event;
-  installButton.hidden = false;
   if (installPanel) installPanel.hidden = false;
+  if (installButton) installButton.disabled = false;
+  if (installStatus) installStatus.textContent = 'Aplikasi siap dipasang di perangkat ini.';
 });
 
 installButton?.addEventListener('click', async () => {
+  if (isIos) {
+    if (iosInstructions) iosInstructions.hidden = !iosInstructions.hidden;
+    return;
+  }
+
   if (!installPrompt) return;
   installPrompt.prompt();
-  await installPrompt.userChoice;
+  const choice = await installPrompt.userChoice;
   installPrompt = null;
-  installButton.hidden = true;
-  hideInstallPanel();
+  installButton.disabled = true;
+  if (installStatus) {
+    installStatus.textContent = choice.outcome === 'accepted'
+      ? 'Pemasangan aplikasi sedang diproses.'
+      : 'Pemasangan dibatalkan. Anda dapat mencobanya kembali nanti.';
+  }
 });
-
-if (installPanel && iosInstallButton && isIos && !isNativeApp && !isStandalone) {
-  installPanel.hidden = false;
-  iosInstallButton.hidden = false;
-}
-
-iosInstallButton?.addEventListener('click', () => {
-  if (!iosInstructions) return;
-  iosInstructions.hidden = !iosInstructions.hidden;
-  iosInstallButton.textContent = iosInstructions.hidden ? 'Cara pasang' : 'Tutup petunjuk';
-});
-
-installDismissButton?.addEventListener('click', hideInstallPanel);
 
 window.addEventListener('appinstalled', () => {
-  installPrompt = null;
-  if (installButton) installButton.hidden = true;
-  hideInstallPanel();
+  localStorage.setItem('pasti-batamen-installed', 'true');
+  if (installPanel) installPanel.hidden = true;
 });

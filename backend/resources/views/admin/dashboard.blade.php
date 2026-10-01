@@ -39,11 +39,11 @@
 
         <section class="admin-panel dashboard-recent-panel">
             <div class="panel-heading"><h2>Survei Petugas Terbaru</h2><a href="{{ route('admin.surveys.index') }}">Lihat seluruh survei →</a></div>
-            <div class="table-scroll"><table class="admin-table"><thead><tr><th>No.</th><th>Tanggal</th><th>Petugas</th><th>Jabatan</th><th>Rata-rata</th><th></th></tr></thead><tbody>
+            <div class="table-scroll"><table class="admin-table"><thead><tr><th>No.</th><th>Tanggal</th><th>Nomor HP</th><th>Petugas</th><th>Jenis Layanan</th><th>Rata-rata</th><th></th></tr></thead><tbody>
                 @forelse($recentSurveys as $survey)
-                    <tr><td>{{ $loop->iteration }}</td><td>{{ $survey->created_at->format('d/m/Y H:i') }}</td><td><strong>{{ $survey->staffMember->name }}</strong></td><td>{{ $survey->staffMember->position }}</td><td>{{ number_format((float) $survey->ratings_avg_score, 2, ',', '.') }} / 5</td><td><a class="table-link" href="{{ route('admin.surveys.show', $survey) }}">Detail</a></td></tr>
+                    <tr><td>{{ $loop->iteration }}</td><td>{{ $survey->created_at->format('d/m/Y H:i') }}</td><td>{{ $survey->respondent_phone ?: '—' }}</td><td><strong>{{ $survey->staffMember->name }}</strong></td><td>{{ config("public_services.{$survey->service_slug}.name", $survey->service_slug ?: '—') }}</td><td>{{ number_format((float) $survey->ratings_avg_score, 2, ',', '.') }} / 5</td><td><a class="table-link" href="{{ route('admin.surveys.show', $survey) }}">Detail</a></td></tr>
                 @empty
-                    <tr><td colspan="6" class="empty-state">Belum ada survei petugas.</td></tr>
+                    <tr><td colspan="7" class="empty-state">Belum ada survei petugas.</td></tr>
                 @endforelse
             </tbody></table></div>
         </section>

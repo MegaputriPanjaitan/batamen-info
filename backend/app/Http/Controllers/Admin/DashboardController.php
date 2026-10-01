@@ -23,7 +23,7 @@ class DashboardController extends Controller
         ];
 
         $recentSurveys = SurveyResponse::query()
-            ->with('staffMember:id,name,position')
+            ->with('staffMember:id,name')
             ->withAvg('ratings', 'score')
             ->latest()
             ->limit(3)

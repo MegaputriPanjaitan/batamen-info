@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
-#[Fillable(['name', 'position', 'photo_path', 'is_active'])]
+#[Fillable(['name', 'nip', 'service_slugs', 'photo_path', 'is_active'])]
 class StaffMember extends Model
 {
     /** @use HasFactory<StaffMemberFactory> */
@@ -27,6 +27,9 @@ class StaffMember extends Model
 
     protected function casts(): array
     {
-        return ['is_active' => 'boolean'];
+        return [
+            'service_slugs' => 'array',
+            'is_active' => 'boolean',
+        ];
     }
 }

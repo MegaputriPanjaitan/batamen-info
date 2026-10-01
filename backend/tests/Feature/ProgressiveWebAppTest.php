@@ -19,21 +19,26 @@ class ProgressiveWebAppTest extends TestCase
             ->assertSee('app-service-icon', false)
             ->assertSee('<svg viewBox="0 0 24 24">', false)
             ->assertSee('Logo BHP Medan')
-            ->assertSee('Selamat Datang di BHP Medan')
+            ->assertSee('Portal Akses Sistem Informasi BHP Medan')
             ->assertSee('Layanan publik terintegrasi dan transparan')
-            ->assertSee('PENGUMUMAN')
-            ->assertSeeInOrder(['Sistem Informasi Pelayanan Publik', 'Survei Layanan', 'Pengaduan', 'Batamen'])
+            ->assertSeeInOrder(['Jam operasional', 'Senin–Kamis 08.00–16.00 WIB', 'Jumat 08.00–16.30 WIB'])
+            ->assertSeeInOrder(['Layanan Publik', 'Sistem Informasi Pelayanan Publik', 'Survei Layanan', 'Layanan Pengaduan Masyarakat'])
+            ->assertSee('href="'.route('public-services.index').'"', false)
             ->assertSee('href="https://www.batamen.com/"', false)
             ->assertDontSee('Soon')
             ->assertDontSee('main-nav', false)
             ->assertDontSee('menu-toggle', false)
             ->assertDontSee('bhp-logo-showcase', false)
             ->assertSee('welcome-mascot', false)
-            ->assertSee('Selamat datang di Informasi dan Layanan BHP Medan.')
+            ->assertSee('Buka Batamen')
+            ->assertSee('mascot-batamen-icon', false)
+            ->assertDontSee('Akses layanan digital Batamen')
+            ->assertDontSee('data-mascot-message', false)
             ->assertSee('data-pwa-install-panel', false)
+            ->assertSee('data-pwa-install-panel hidden', false)
             ->assertSee('data-pwa-install', false)
-            ->assertSee('Pasang Batamen Info')
-            ->assertSee('Tambahkan ke Layar Utama')
+            ->assertSee('Pasang PASTI Batamen')
+            ->assertSee('Logo Pengayoman')
             ->assertDontSee('Tentang Kami');
     }
 
@@ -43,11 +48,23 @@ class ProgressiveWebAppTest extends TestCase
 
         $this->assertSame('standalone', $manifest['display']);
         $this->assertSame('/', $manifest['id']);
-        $this->assertSame('Batamen Info', $manifest['name']);
+        $this->assertSame('PASTI Batamen', $manifest['name']);
+        $this->assertSame('PASTI Batamen', $manifest['short_name']);
         $this->assertSame('192x192', $manifest['icons'][0]['sizes']);
         $this->assertSame('512x512', $manifest['icons'][1]['sizes']);
         $this->assertFileExists(public_path('assets/app-icon-192.png'));
         $this->assertFileExists(public_path('assets/app-icon-512.png'));
+    }
+
+    public function test_browser_controls_the_native_pwa_install_prompt(): void
+    {
+        $pwaScript = (string) file_get_contents(public_path('assets/pwa.js'));
+
+        $this->assertStringContainsString("navigator.serviceWorker.register('/service-worker.js')", $pwaScript);
+        $this->assertStringContainsString('beforeinstallprompt', $pwaScript);
+        $this->assertStringContainsString('installPrompt.prompt()', $pwaScript);
+        $this->assertStringContainsString('installPanel.hidden = true', $pwaScript);
+        $this->assertStringContainsString('installPanel.hidden = false', $pwaScript);
     }
 
     public function test_offline_page_and_service_worker_are_available(): void

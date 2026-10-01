@@ -17,7 +17,7 @@
         <div class="staff-performance-overview">
         <section class="staff-profile-heading">
             @include('admin.partials.staff-photo', ['staffMember' => $staffMember, 'class' => 'staff-profile-avatar'])
-            <div><span class="kicker">Performa petugas</span><h1>{{ $staffMember->name }}</h1><p>{{ $staffMember->position }}</p></div>
+            <div><span class="kicker">Performa petugas</span><h1>{{ $staffMember->name }}</h1><p>NIP {{ $staffMember->nip ?: 'belum diisi' }}</p></div>
         </section>
 
         <section class="staff-summary" aria-label="Ringkasan performa petugas">

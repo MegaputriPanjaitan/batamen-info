@@ -139,16 +139,120 @@ if (successToast) {
 
 const staffSurveyForm = document.querySelector('#staff-survey-form');
 if (staffSurveyForm) {
+  const contextDialog = staffSurveyForm.querySelector('[data-survey-context-dialog]');
+  const contextContinueButton = staffSurveyForm.querySelector('[data-survey-context-continue]');
+  const contextError = staffSurveyForm.querySelector('[data-survey-context-error]');
+  const phoneInput = staffSurveyForm.querySelector('input[name="respondent_phone"]');
+  const serviceSelect = staffSurveyForm.querySelector('select[name="service_slug"]');
+  const selectedServiceLabel = staffSurveyForm.querySelector('[data-selected-service]');
+  const emptyServiceMessage = staffSurveyForm.querySelector('[data-staff-service-empty]');
   const staffStep = staffSurveyForm.querySelector('[data-survey-step="staff"]');
   const questionStep = staffSurveyForm.querySelector('[data-survey-step="questions"]');
   const backButton = staffSurveyForm.querySelector('[data-survey-back]');
   const selectedStaffLabel = staffSurveyForm.querySelector('[data-selected-staff]');
   const confirmDialog = staffSurveyForm.querySelector('[data-staff-confirm-dialog]');
   const confirmStaffLabel = staffSurveyForm.querySelector('[data-confirm-staff]');
-  const confirmStaffPosition = staffSurveyForm.querySelector('[data-confirm-staff-position]');
+  const confirmStaffNip = staffSurveyForm.querySelector('[data-confirm-staff-nip]');
   const confirmStaffPhoto = staffSurveyForm.querySelector('[data-confirm-staff-photo]');
   const confirmStaffButton = staffSurveyForm.querySelector('[data-confirm-staff-survey]');
   const staffOptions = [...staffSurveyForm.querySelectorAll('input[name="staff_member_id"]')];
+  const staffChoices = [...staffSurveyForm.querySelectorAll('.staff-choice')];
+  const availabilityUrl = staffSurveyForm.dataset.availabilityUrl;
+  let contextConfirmed = false;
+
+  const normalizedPhone = () => {
+    let phone = (phoneInput?.value || '').replace(/\D+/g, '');
+    if (phone.startsWith('62')) phone = `0${phone.slice(2)}`;
+    else if (phone.startsWith('8')) phone = `0${phone}`;
+    return phone;
+  };
+
+  const applyServiceFilter = () => {
+    const serviceSlug = serviceSelect?.value || '';
+    let visibleStaffCount = 0;
+    staffChoices.forEach((choice) => {
+      let services = [];
+      try { services = JSON.parse(choice.dataset.services || '[]'); } catch (_) { services = []; }
+      const isVisible = services.includes(serviceSlug);
+      choice.hidden = !isVisible;
+      const option = choice.querySelector('input[name="staff_member_id"]');
+      if (!isVisible && option) option.checked = false;
+      if (isVisible) visibleStaffCount += 1;
+    });
+    if (emptyServiceMessage) emptyServiceMessage.hidden = visibleStaffCount > 0;
+    if (selectedServiceLabel) selectedServiceLabel.textContent = serviceSelect?.selectedOptions?.[0]?.textContent?.trim() || 'belum dipilih';
+  };
+
+  const applyRatedStaff = (ratedStaffIds) => {
+    const ratedIds = new Set(ratedStaffIds.map((id) => String(id)));
+    staffChoices.forEach((choice) => {
+      const option = choice.querySelector('input[name="staff_member_id"]');
+      const unavailableMessage = choice.querySelector('[data-staff-unavailable]');
+      const isUnavailable = option && ratedIds.has(option.value);
+      if (option) {
+        option.disabled = Boolean(isUnavailable);
+        if (isUnavailable) option.checked = false;
+      }
+      choice.classList.toggle('is-unavailable', Boolean(isUnavailable));
+      if (unavailableMessage) unavailableMessage.hidden = true;
+    });
+  };
+
+  const confirmSurveyContext = async () => {
+    const phone = normalizedPhone();
+    if (!/^08[0-9]{8,13}$/.test(phone)) {
+      if (contextError) {
+        contextError.textContent = 'Masukkan nomor HP yang valid, misalnya 081234567890.';
+        contextError.hidden = false;
+      }
+      phoneInput?.focus();
+      return;
+    }
+    if (!serviceSelect?.value) {
+      if (contextError) {
+        contextError.textContent = 'Pilih jenis layanan yang Anda terima.';
+        contextError.hidden = false;
+      }
+      serviceSelect?.focus();
+      return;
+    }
+    if (phoneInput) phoneInput.value = phone;
+    if (contextError) contextError.hidden = true;
+
+    contextContinueButton.disabled = true;
+    const originalButtonText = contextContinueButton.textContent;
+    contextContinueButton.textContent = 'Memeriksa...';
+    try {
+      const response = await fetch(availabilityUrl, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'X-CSRF-TOKEN': staffSurveyForm.querySelector('input[name="_token"]')?.value || '',
+        },
+        body: JSON.stringify({ respondent_phone: phone, service_slug: serviceSelect.value }),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.message || 'Data tidak dapat diperiksa.');
+      applyRatedStaff(result.rated_staff_ids || []);
+    } catch (error) {
+      if (contextError) {
+        contextError.textContent = error.message || 'Terjadi kendala saat memeriksa data. Silakan coba lagi.';
+        contextError.hidden = false;
+      }
+      return;
+    } finally {
+      contextContinueButton.disabled = false;
+      contextContinueButton.textContent = originalButtonText;
+    }
+
+    contextConfirmed = true;
+    applyServiceFilter();
+    staffStep.hidden = false;
+    questionStep.hidden = true;
+    contextDialog?.close();
+    window.scrollTo({ top: staffSurveyForm.offsetTop - 92, behavior: reduceMotion ? 'auto' : 'smooth' });
+  };
 
   const selectedStaff = () => staffOptions.find((option) => option.checked);
   const updateSelectedStaff = () => {
@@ -157,13 +261,13 @@ if (staffSurveyForm) {
     const staffName = selected.labels?.[0]?.querySelector('strong')?.textContent?.trim() || 'petugas terpilih';
     if (selectedStaffLabel) selectedStaffLabel.textContent = staffName;
     if (confirmStaffLabel) confirmStaffLabel.textContent = staffName;
-    if (confirmStaffPosition) confirmStaffPosition.textContent = selected.labels?.[0]?.querySelector('small')?.textContent?.trim() || '';
+    if (confirmStaffNip) confirmStaffNip.textContent = selected.labels?.[0]?.querySelector('small')?.textContent?.trim() || '';
     const photo = selected.labels?.[0]?.querySelector('.staff-photo');
     if (confirmStaffPhoto) confirmStaffPhoto.replaceChildren(...(photo ? [photo.cloneNode(true)] : []));
   };
   const showSurveyStep = (step, updateHistory = true) => {
-    const showQuestions = step === 'questions' && selectedStaff();
-    staffStep.hidden = Boolean(showQuestions);
+    const showQuestions = contextConfirmed && step === 'questions' && selectedStaff();
+    staffStep.hidden = !contextConfirmed || Boolean(showQuestions);
     questionStep.hidden = !showQuestions;
     updateSelectedStaff();
     if (updateHistory) {
@@ -172,6 +276,16 @@ if (staffSurveyForm) {
     }
     window.scrollTo({ top: staffSurveyForm.offsetTop - 92, behavior: reduceMotion ? 'auto' : 'smooth' });
   };
+
+  contextContinueButton?.addEventListener('click', confirmSurveyContext);
+  contextDialog?.addEventListener('cancel', (event) => event.preventDefault());
+  contextDialog?.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      confirmSurveyContext();
+    }
+  });
+  if (contextDialog?.hasAttribute('data-open-on-load')) contextDialog.showModal();
 
   const openStaffConfirmation = () => {
     updateSelectedStaff();
@@ -187,6 +301,17 @@ if (staffSurveyForm) {
   };
 
   staffOptions.forEach((option) => option.addEventListener('change', openStaffConfirmation));
+  staffChoices.forEach((choice) => choice.addEventListener('click', (event) => {
+    if (!choice.classList.contains('is-unavailable')) return;
+    event.preventDefault();
+    staffChoices.forEach((otherChoice) => {
+      const otherMessage = otherChoice.querySelector('[data-staff-unavailable]');
+      if (otherMessage) otherMessage.hidden = otherChoice !== choice;
+    });
+    const message = choice.querySelector('[data-staff-unavailable]');
+    if (message) message.hidden = false;
+    message?.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
+  }));
   confirmStaffButton?.addEventListener('click', () => {
     confirmDialog?.close();
     showSurveyStep('questions');
@@ -237,20 +362,6 @@ if (revealItems.length && !reduceMotion && 'IntersectionObserver' in window) {
 }
 
 const yearElement = document.getElementById('year');
-const welcomeMascot = document.querySelector('[data-welcome-mascot]');
-const mascotToggle = welcomeMascot?.querySelector('[data-mascot-toggle]');
-let mascotAutoCloseTimer;
-
-const setMascotOpen = (isOpen) => {
-  window.clearTimeout(mascotAutoCloseTimer);
-  welcomeMascot?.classList.toggle('is-open', isOpen);
-  mascotToggle?.setAttribute('aria-expanded', String(isOpen));
-  if (isOpen) mascotAutoCloseTimer = window.setTimeout(() => setMascotOpen(false), 3000);
-};
-
-mascotToggle?.addEventListener('click', () => setMascotOpen(!welcomeMascot.classList.contains('is-open')));
-if (welcomeMascot) setMascotOpen(true);
-
 const unavailableTestCard = document.querySelector('.service-card.green');
 if (unavailableTestCard) {
   unavailableTestCard.removeAttribute('href');

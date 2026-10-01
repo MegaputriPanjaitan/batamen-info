@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\InternalSurveyEmployee;
 use App\Models\ServiceAccessEvent;
+use App\Models\StaffMember;
 use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
@@ -28,10 +29,11 @@ class PublicPageControllerTest extends TestCase
     {
         return [
             'home' => ['home', 'Informasi'],
+            'public services' => ['public-services.index', 'Temukan layanan yang Anda perlukan'],
             'information' => ['information.index', 'Informasi publik dalam satu akses'],
-            'surveys' => ['surveys.index', 'Survei Petugas Pelayanan'],
+            'surveys' => ['surveys.index', 'Survei Petugas Layanan'],
             'staff survey' => ['staff-surveys.create', 'Bagaimana pengalaman pelayanan Anda?'],
-            'complaint' => ['complaints.create', 'Sampaikan laporan dengan aman dan terarah'],
+            'complaint' => ['complaints.create', 'Sampaikan laporan dengan aman'],
             'test' => ['tests.index', 'Belum ada test tersedia'],
         ];
     }
@@ -83,12 +85,15 @@ class PublicPageControllerTest extends TestCase
 
     public function test_staff_survey_requires_confirmation_before_questions(): void
     {
+        StaffMember::factory()->create();
+
         $this->get(route('staff-surveys.create'))
             ->assertOk()
             ->assertSee('data-staff-confirm-dialog', false)
             ->assertSee('Apakah ini petugasnya?')
             ->assertSee('data-confirm-staff-photo', false)
-            ->assertSee('data-confirm-staff-position', false)
+            ->assertSee('data-confirm-staff-nip', false)
+            ->assertSee('Anda tidak dapat memilih petugas ini lagi.')
             ->assertSee('data-confirm-staff-survey', false);
     }
 
@@ -99,6 +104,54 @@ class PublicPageControllerTest extends TestCase
             ->assertSee(route('internal-surveys.login'), false)
             ->assertSee('Login Survei Integritas')
             ->assertSee('name="nip"', false);
+    }
+
+    public function test_survey_types_are_displayed_in_the_requested_order(): void
+    {
+        $this->get(route('surveys.index'))
+            ->assertOk()
+            ->assertSeeInOrder([
+                'Survei Tuntas Waris',
+                'Survei SPAK',
+                'Survei Petugas Layanan',
+                'Survei Integritas',
+            ]);
+    }
+
+    public function test_public_services_page_lists_eight_services_and_links_to_details(): void
+    {
+        $this->get(route('public-services.index'))
+            ->assertOk()
+            ->assertSeeInOrder([
+                'Ketidakhadiran (Afwezigheid)',
+                'Pendaftaran dan Pembukaan Wasiat',
+                'Kepailitan',
+                'Penatausahaan Uang Pihak Ketiga',
+                'Perwalian',
+                'Pengampuan',
+                'Surat Keterangan Hak Waris',
+                'Harta Peninggalan Tidak Terurus',
+            ])
+            ->assertSee(route('public-services.show', 'perwalian'), false)
+            ->assertSee(route('public-services.show', 'hak-waris'), false)
+            ->assertDontSee('Layanan BHP</small>', false);
+    }
+
+    public function test_public_service_detail_displays_official_requirements_tariffs_and_procedure(): void
+    {
+        $this->get(route('public-services.show', 'perwalian'))
+            ->assertOk()
+            ->assertSee('Dokumen persyaratan')
+            ->assertSee('Penetapan perwalian')
+            ->assertSee('Biaya dan tarif')
+            ->assertSee('Rp200.000 per permohonan')
+            ->assertSee('Alur pengurusan')
+            ->assertDontSee('Jangka waktu')
+            ->assertDontSee('Produk pelayanan')
+            ->assertDontSee('Sumber resmi');
+
+        $this->get(route('public-services.show', 'layanan-tidak-ada'))
+            ->assertNotFound();
     }
 
     public function test_only_active_registered_nip_can_open_internal_survey(): void

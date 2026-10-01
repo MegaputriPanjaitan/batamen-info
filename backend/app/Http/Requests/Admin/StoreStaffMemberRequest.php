@@ -4,6 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreStaffMemberRequest extends FormRequest
 {
@@ -24,7 +25,9 @@ class StoreStaffMemberRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'position' => ['required', 'string', 'max:255'],
+            'nip' => ['required', 'digits_between:8,30', 'unique:staff_members,nip'],
+            'service_slugs' => ['required', 'array', 'min:1'],
+            'service_slugs.*' => ['required', 'string', 'distinct', Rule::in(array_keys(config('public_services')))],
             'photo' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
             'is_active' => ['nullable', 'boolean'],
         ];

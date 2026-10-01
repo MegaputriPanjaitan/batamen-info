@@ -19,7 +19,8 @@ class StaffMemberFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'position' => 'Petugas Pelayanan',
+            'nip' => fake()->unique()->numerify('##################'),
+            'service_slugs' => array_keys(config('public_services')),
             'photo_path' => null,
             'is_active' => true,
         ];

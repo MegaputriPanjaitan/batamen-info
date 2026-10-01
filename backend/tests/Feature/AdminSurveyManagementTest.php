@@ -18,13 +18,14 @@ class AdminSurveyManagementTest extends TestCase
         $admin = User::factory()->create(['is_admin' => true]);
         $selectedStaff = StaffMember::factory()->create(['name' => 'Petugas Pilihan', 'photo_path' => 'staff/petugas-pilihan.webp']);
         $otherStaff = StaffMember::factory()->create(['name' => 'Petugas Lain']);
-        $survey = SurveyResponse::factory()->for($selectedStaff)->create();
+        $survey = SurveyResponse::factory()->for($selectedStaff)->create(['respondent_phone' => '081234567890']);
         SurveyRating::factory()->for($survey)->create(['question_key' => 'q1', 'score' => 4]);
         $otherSurvey = SurveyResponse::factory()->for($otherStaff)->create();
 
         $this->actingAs($admin)->get(route('admin.surveys.index', ['staff_member_id' => $selectedStaff->id]))
             ->assertOk()
             ->assertSee('Petugas Pilihan')
+            ->assertSee('081234567890')
             ->assertSee('Peringkat Performa Petugas')
             ->assertSee('Kelola Petugas')
             ->assertSee(route('admin.staff.index'), false)
@@ -40,6 +41,8 @@ class AdminSurveyManagementTest extends TestCase
         $this->actingAs($admin)->get(route('admin.surveys.show', $survey))
             ->assertOk()
             ->assertSee('Rincian Penilaian')
+            ->assertSee('Nomor HP:')
+            ->assertSee('081234567890')
             ->assertSee('4 / 5');
     }
 
@@ -62,12 +65,15 @@ class AdminSurveyManagementTest extends TestCase
     {
         $admin = User::factory()->create(['is_admin' => true]);
         $staff = StaffMember::factory()->create(['name' => 'Petugas Ekspor']);
-        $survey = SurveyResponse::factory()->for($staff)->create();
+        $survey = SurveyResponse::factory()->for($staff)->create(['respondent_phone' => '081298765432']);
         SurveyRating::factory()->for($survey)->create(['score' => 5]);
 
-        $this->actingAs($admin)->get(route('admin.surveys.export'))
-            ->assertOk()
-            ->assertDownload('laporan-survei-'.now()->format('Y-m-d').'.csv');
+        $response = $this->actingAs($admin)->get(route('admin.surveys.export'));
+
+        $response->assertOk()->assertDownload('laporan-survei-'.now()->format('Y-m-d').'.csv');
+        $csv = $response->streamedContent();
+        $this->assertStringContainsString('Nomor HP', $csv);
+        $this->assertStringContainsString('081298765432', $csv);
     }
 
     public function test_guest_cannot_access_survey_management(): void

@@ -24,7 +24,10 @@ class StaffMemberController extends Controller
             ->orderBy('name')
             ->paginate(15);
 
-        return view('admin.staff.index', compact('staffMembers'));
+        return view('admin.staff.index', [
+            'staffMembers' => $staffMembers,
+            'publicServices' => config('public_services'),
+        ]);
     }
 
     /**
@@ -49,7 +52,10 @@ class StaffMemberController extends Controller
      */
     public function edit(StaffMember $staffMember): View
     {
-        return view('admin.staff.edit', compact('staffMember'));
+        return view('admin.staff.edit', [
+            'staffMember' => $staffMember,
+            'publicServices' => config('public_services'),
+        ]);
     }
 
     /**

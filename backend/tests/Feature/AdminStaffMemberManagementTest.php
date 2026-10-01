@@ -20,13 +20,16 @@ class AdminStaffMemberManagementTest extends TestCase
 
         $this->actingAs($admin)->post(route('admin.staff.store'), [
             'name' => 'Petugas Baru',
-            'position' => 'Petugas Pelayanan',
+            'nip' => '198205112005011001',
+            'service_slugs' => ['perwalian', 'pengampuan'],
             'photo' => UploadedFile::fake()->image('petugas.jpg', 500, 500),
             'is_active' => '1',
         ])->assertRedirect()->assertSessionHas('success');
 
         $staff = StaffMember::query()->where('name', 'Petugas Baru')->firstOrFail();
         $this->assertTrue($staff->is_active);
+        $this->assertSame('198205112005011001', $staff->nip);
+        $this->assertSame(['perwalian', 'pengampuan'], $staff->service_slugs);
         Storage::disk('public')->assertExists($staff->photo_path);
     }
 
@@ -39,13 +42,15 @@ class AdminStaffMemberManagementTest extends TestCase
 
         $this->actingAs($admin)->put(route('admin.staff.update', $staff), [
             'name' => 'Petugas Diperbarui',
-            'position' => 'Petugas Layanan Utama',
+            'nip' => '198410272002122002',
+            'service_slugs' => ['hak-waris'],
             'photo' => UploadedFile::fake()->image('new.jpg', 500, 500),
         ])->assertRedirect(route('admin.staff.index'))->assertSessionHas('success');
 
         $staff->refresh();
         $this->assertFalse($staff->is_active);
         $this->assertSame('Petugas Diperbarui', $staff->name);
+        $this->assertSame(['hak-waris'], $staff->service_slugs);
         Storage::disk('public')->assertMissing('staff-photos/old.jpg');
         Storage::disk('public')->assertExists($staff->photo_path);
     }

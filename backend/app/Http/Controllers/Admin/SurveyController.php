@@ -16,14 +16,14 @@ class SurveyController extends Controller
         $validated = $request->validate(['staff_member_id' => ['nullable', 'integer', 'exists:staff_members,id']]);
 
         $surveys = SurveyResponse::query()
-            ->with('staffMember:id,name,position')
+            ->with('staffMember:id,name')
             ->withAvg('ratings', 'score')
             ->when($validated['staff_member_id'] ?? null, fn ($query, $staffId) => $query->where('staff_member_id', $staffId))
             ->latest()
             ->paginate(15)
             ->withQueryString();
         $staffMembers = StaffMember::query()
-            ->select(['id', 'name', 'position', 'photo_path'])
+            ->select(['id', 'name', 'nip', 'photo_path'])
             ->withCount('surveyResponses')
             ->withAvg('ratings', 'score')
             ->orderByDesc('ratings_avg_score')
@@ -52,10 +52,10 @@ class SurveyController extends Controller
 
         return response()->streamDownload(function () use ($validated): void {
             $output = fopen('php://output', 'w');
-            fputcsv($output, ['Tanggal', 'Petugas', 'Jabatan', 'Rata-rata Nilai']);
+            fputcsv($output, ['Tanggal', 'Nomor HP', 'Petugas', 'Jenis Layanan', 'Rata-rata Nilai']);
 
             SurveyResponse::query()
-                ->with('staffMember:id,name,position')
+                ->with('staffMember:id,name')
                 ->withAvg('ratings', 'score')
                 ->when($validated['staff_member_id'] ?? null, fn ($query, $staffId) => $query->where('staff_member_id', $staffId))
                 ->latest()
@@ -63,8 +63,9 @@ class SurveyController extends Controller
                     foreach ($surveys as $survey) {
                         fputcsv($output, [
                             $survey->created_at->format('d/m/Y H:i'),
+                            $survey->respondent_phone ?: '-',
                             $survey->staffMember->name,
-                            $survey->staffMember->position,
+                            config("public_services.{$survey->service_slug}.name", $survey->service_slug ?: '-'),
                             number_format((float) $survey->ratings_avg_score, 2, '.', ''),
                         ]);
                     }

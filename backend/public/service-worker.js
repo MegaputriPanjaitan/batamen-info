@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bhp-medan-static-v129';
+const CACHE_NAME = 'bhp-medan-static-v153';
 const OFFLINE_URL = '/offline.html';
 const STATIC_FILES = [OFFLINE_URL, '/assets/styles.css', '/assets/pwa.js', '/assets/logo-bhp-medan-display.png', '/assets/bhp-medan-building.jpeg', '/assets/bhp-building-about.jpeg', '/assets/layanan-informasi.jpeg', '/assets/layanan-survei.jpeg', '/assets/layanan-pengaduan.jpeg', '/assets/maskot-bhp-transparent.png', '/assets/app-icon-192.png', '/assets/app-icon-512.png'];
 

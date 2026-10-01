@@ -5,19 +5,19 @@
   <title>Survei | BHP Medan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('assets/styles.css') }}?v=129">
+  <link rel="stylesheet" href="{{ asset('assets/styles.css') }}?v=153">
   @include('partials.pwa-head')
 </head>
 <body class="inner-page building-background-page interactive-service-page survey-landing-page">
   @include('partials.inner-header', ['backUrl' => route('home').'#layanan', 'backLabel' => 'Kembali'])
   <main class="survey-page">
-    <section class="page-hero service-form-hero survey-page-hero"><div class="container"><div class="service-hero-copy"><span class="kicker page-hero-kicker">Survei Layanan</span><h1>Pendapat Anda, dasar kami untuk <span class="survey-title-accent">melayani lebih baik.</span></h1><p>Berikan penilaian secara jujur berdasarkan pengalaman Anda. Setiap tanggapan membantu kami mengevaluasi dan meningkatkan mutu pelayanan.</p></div></div></section>
+    <section class="page-hero service-form-hero survey-page-hero"><div class="container"><div class="service-hero-copy"><span class="kicker page-hero-kicker">Survei Layanan</span><h1>Pendapat Anda, dasar kami untuk <span class="survey-title-accent">melayani lebih baik</span></h1><p>Berikan penilaian secara jujur berdasarkan pengalaman Anda. Setiap tanggapan membantu kami mengevaluasi dan meningkatkan mutu pelayanan.</p></div></div></section>
     <section class="page-content survey-page-content"><div class="container"><div class="survey-choice-panel">
       <div class="survey-options">
-        <a class="survey-option" href="{{ route('spkp-spak.access') }}"><span class="survey-option-number">01</span><div><small>Survei eksternal</small><h3>SPKP / SPAK</h3><p>Buka survei pada tautan resmi.</p></div><b>↗</b></a>
-        <a class="survey-option" href="{{ route('internal-surveys.login') }}"><span class="survey-option-number">02</span><div><small>Survei internal</small><h3>Survei Integritas Internal</h3><p>Login menggunakan NIP pegawai.</p></div><b>↗</b></a>
-        <a class="survey-option" href="{{ route('staff-surveys.create') }}"><span class="survey-option-number">04</span><div><small>Penilaian langsung</small><h3>Survei Petugas Pelayanan</h3><p>Pilih petugas dan beri penilaian.</p></div><b>↗</b></a>
-        <div class="survey-option survey-soon" aria-disabled="true"><span class="survey-option-number">05</span><div><small>Segera hadir</small><h3>Survei Tuntas Waris</h3><p>Layanan sedang dipersiapkan.</p></div><span class="soon-badge">SOON</span></div>
+        <div class="survey-option survey-soon" aria-disabled="true"><span class="survey-option-number">01</span><div><small>Segera hadir</small><h3>Survei Tuntas Waris</h3><p>Layanan sedang dipersiapkan.</p></div><span class="soon-badge">SOON</span></div>
+        <a class="survey-option" href="{{ route('spkp-spak.access') }}"><span class="survey-option-number">02</span><div><small>Survei eksternal</small><h3>Survei SPAK</h3><p>Buka survei pada tautan resmi.</p></div><b>↗</b></a>
+        <a class="survey-option" href="{{ route('staff-surveys.create') }}"><span class="survey-option-number">03</span><div><small>Penilaian langsung</small><h3>Survei Petugas Layanan</h3><p>Pilih petugas dan beri penilaian.</p></div><b>↗</b></a>
+        <a class="survey-option" href="{{ route('internal-surveys.login') }}"><span class="survey-option-number">04</span><div><small>Survei internal</small><h3>Survei Integritas</h3><p>Login menggunakan NIP pegawai.</p></div><b>↗</b></a>
       </div>
     </div></div></section>
   </main>

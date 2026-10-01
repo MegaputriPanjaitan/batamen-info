@@ -227,8 +227,8 @@ footer{background:#052a49;color:#a9bfce;padding:62px 0 20px}.footer-grid{display
 .survey-choice-panel .survey-option:nth-child(2) .survey-option-number{background:#fff7d9;color:#a97900;box-shadow:inset 0 0 0 2px rgba(196,145,10,.18)}
 .survey-choice-panel .survey-option:nth-child(3)::before{background:#18866f}
 .survey-choice-panel .survey-option:nth-child(3) .survey-option-number{background:#e8f7f2;color:#18755f;box-shadow:inset 0 0 0 2px rgba(24,117,95,.15)}
-.survey-choice-panel .survey-option:nth-child(4)::before{background:#9aaca8}
-.survey-choice-panel .survey-option:nth-child(4) .survey-option-number{background:#edf2f1;color:#728985;box-shadow:inset 0 0 0 2px rgba(114,137,133,.14)}
+.survey-choice-panel .survey-option:nth-child(4)::before{background:#5748a8}
+.survey-choice-panel .survey-option:nth-child(4) .survey-option-number{background:#f0edff;color:#5748a8;box-shadow:inset 0 0 0 2px rgba(87,72,168,.16)}
 .survey-choice-panel .survey-option:hover:not(.survey-soon){transform:translateY(-5px);border-color:rgba(11,95,172,.25);box-shadow:0 18px 40px rgba(6,47,83,.14)}
 @media(max-width:760px){.survey-choice-panel .survey-option{grid-template-columns:52px 1fr 24px}.survey-choice-panel .survey-option-number{width:50px;height:50px}.survey-choice-panel .survey-option-number::before{font-size:1.3rem}}
 
@@ -244,13 +244,13 @@ footer{background:#052a49;color:#a9bfce;padding:62px 0 20px}.footer-grid{display
 .survey-choice-panel .survey-option{min-height:156px;padding:25px 26px;grid-template-columns:64px 1fr 42px;gap:20px;background-color:rgba(255,255,255,.96);background-image:radial-gradient(circle at 92% 15%,rgba(21,101,181,.08),transparent 26%)}
 .survey-choice-panel .survey-option:nth-child(2){background-image:radial-gradient(circle at 92% 15%,rgba(255,199,0,.12),transparent 26%)}
 .survey-choice-panel .survey-option:nth-child(3){background-image:radial-gradient(circle at 92% 15%,rgba(24,134,111,.1),transparent 26%)}
-.survey-choice-panel .survey-option:nth-child(4){background-image:radial-gradient(circle at 92% 15%,rgba(114,137,133,.1),transparent 26%)}
+.survey-choice-panel .survey-option:nth-child(4){background-image:radial-gradient(circle at 92% 15%,rgba(87,72,168,.12),transparent 28%)}
 .survey-choice-panel .survey-option-number{width:62px;height:62px}
 .survey-choice-panel .survey-option-number::before{content:""!important;width:29px;height:29px;background:currentColor;mask-repeat:no-repeat;mask-position:center;mask-size:contain;-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;-webkit-mask-size:contain}
 .survey-choice-panel .survey-option:nth-child(1) .survey-option-number::before{mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 3h6a2 2 0 0 1 2 2h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2-2Zm1 2v2h4V5h-4Zm-2 7 2.2 2.2 5-5 1.4 1.4-6.4 6.4-3.6-3.6L8 12Z'/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 3h6a2 2 0 0 1 2 2h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2-2Zm1 2v2h4V5h-4Zm-2 7 2.2 2.2 5-5 1.4 1.4-6.4 6.4-3.6-3.6L8 12Z'/%3E%3C/svg%3E")}
 .survey-choice-panel .survey-option:nth-child(2) .survey-option-number::before{mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 4 5v6c0 5.05 3.41 9.74 8 11 4.59-1.26 8-5.95 8-11V5l-8-3Zm0 2.18 6 2.25V11c0 3.89-2.46 7.72-6 8.92C8.46 18.72 6 14.89 6 11V6.43l6-2.25Zm-1 4.32v5l4.25-2.55 1 1.65L11 15.75V8.5h2Z'/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 4 5v6c0 5.05 3.41 9.74 8 11 4.59-1.26 8-5.95 8-11V5l-8-3Zm0 2.18 6 2.25V11c0 3.89-2.46 7.72-6 8.92C8.46 18.72 6 14.89 6 11V6.43l6-2.25Zm-1 4.32v5l4.25-2.55 1 1.65L11 15.75V8.5h2Z'/%3E%3C/svg%3E")}
 .survey-choice-panel .survey-option:nth-child(3) .survey-option-number::before{mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-5.52 0-10 2.24-10 5v3h20v-3c0-2.76-4.48-5-10-5Zm7.5-7.5.62 1.88H22l-1.52 1.1.58 1.9-1.56-1.16-1.56 1.16.58-1.9L17 8.38h1.88l.62-1.88Z'/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-5.52 0-10 2.24-10 5v3h20v-3c0-2.76-4.48-5-10-5Zm7.5-7.5.62 1.88H22l-1.52 1.1.58 1.9-1.56-1.16-1.56 1.16.58-1.9L17 8.38h1.88l.62-1.88Z'/%3E%3C/svg%3E")}
-.survey-choice-panel .survey-option:nth-child(4) .survey-option-number::before{mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16Zm-1 3v6h5v-2h-3V7h-2Z'/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16Zm-1 3v6h5v-2h-3V7h-2Z'/%3E%3C/svg%3E")}
+.survey-choice-panel .survey-option:nth-child(4) .survey-option-number::before{mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 4 5v6c0 5.05 3.41 9.74 8 11 4.59-1.26 8-5.95 8-11V5l-8-3Zm0 2.18 6 2.25V11c0 3.89-2.46 7.72-6 8.92C8.46 18.72 6 14.89 6 11V6.43l6-2.25Zm-1 4.32v5l4.25-2.55 1 1.65L11 15.75V8.5h2Z'/%3E%3C/svg%3E");-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 4 5v6c0 5.05 3.41 9.74 8 11 4.59-1.26 8-5.95 8-11V5l-8-3Zm0 2.18 6 2.25V11c0 3.89-2.46 7.72-6 8.92C8.46 18.72 6 14.89 6 11V6.43l6-2.25Zm-1 4.32v5l4.25-2.55 1 1.65L11 15.75V8.5h2Z'/%3E%3C/svg%3E")}
 .survey-choice-panel .survey-option>b{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:#edf5fd;color:var(--blue);font-size:1.15rem;transition:transform .25s,background .25s}
 .survey-choice-panel .survey-option:hover:not(.survey-soon)>b{transform:translate(3px,-3px);background:var(--blue);color:#fff}
 .survey-choice-panel .survey-option small{letter-spacing:.15em}
@@ -403,7 +403,7 @@ footer{background:#052a49;color:#a9bfce;padding:62px 0 20px}.footer-grid{display
 @media(max-width:620px){.footer-grid-compact h3{font-size:.76rem}.footer-grid-compact>div:last-child p{font-size:.66rem}.footer-grid-compact>div:last-child p strong{font-size:.61rem}}
 
 /* Maskot sambutan interaktif beranda */
-.welcome-mascot{position:fixed;right:8px;bottom:10px;z-index:60;width:170px;height:170px;pointer-events:none}
+.welcome-mascot{position:fixed;left:8px;bottom:10px;z-index:60;width:170px;height:170px;pointer-events:none}
 .mascot-button{position:absolute;right:0;bottom:0;width:165px;height:170px;padding:0;overflow:hidden;border:0;background:transparent;filter:drop-shadow(0 10px 10px rgba(3,30,55,.2));cursor:pointer;pointer-events:auto;transition:transform .25s ease}
 .mascot-button:before,.mascot-button:after{content:"";position:absolute;left:50%;border-radius:50%;transform:translateX(-50%)}
 .mascot-button:after{z-index:1;bottom:3px;width:124px;height:32px;background:radial-gradient(ellipse at center,#020b13 0 48%,#092b4d 52% 67%,#ffcb05 70% 79%,#164f80 82% 100%);box-shadow:inset 0 7px 11px rgba(0,0,0,.7),0 7px 13px rgba(3,30,55,.25)}
@@ -415,7 +415,8 @@ footer{background:#052a49;color:#a9bfce;padding:62px 0 20px}.footer-grid{display
 .mascot-message:after{content:"";position:absolute;right:-9px;bottom:18px;width:18px;height:18px;background:#fff;border-right:1px solid #dbe5ee;border-bottom:1px solid #dbe5ee;transform:rotate(-45deg);border-radius:0 0 4px 0}
 .welcome-mascot.is-open .mascot-message{opacity:1;visibility:visible;transform:none}
 .mascot-message strong,.mascot-message>span{display:block}.mascot-message strong{color:var(--blue);font:800 .92rem Manrope}.mascot-message strong span{display:inline;margin-left:3px}.mascot-message>span{margin-top:2px;font-size:.76rem;line-height:1.4}
-@media(max-width:620px){.welcome-mascot{right:3px;bottom:max(5px,env(safe-area-inset-bottom));width:122px;height:132px}.mascot-button{width:118px;height:132px}.mascot-button img{width:100%;height:148px}.mascot-button:after{bottom:2px;width:86px;height:24px}.mascot-button:before{bottom:0;width:91px;height:17px;border-width:3px}.mascot-message{right:101px;bottom:79px;width:min(178px,calc(100vw - 114px));padding:9px 11px;border-radius:12px}.mascot-message:after{right:-7px;bottom:14px;width:14px;height:14px}.mascot-message strong{font-size:.76rem}.mascot-message>span{font-size:.64rem;line-height:1.35}}
+.mascot-static{pointer-events:none;cursor:default}
+@media(max-width:620px){.welcome-mascot{left:3px;bottom:max(5px,env(safe-area-inset-bottom));width:122px;height:132px}.mascot-button{width:118px;height:132px}.mascot-button img{width:100%;height:148px}.mascot-button:after{bottom:2px;width:86px;height:24px}.mascot-button:before{bottom:0;width:91px;height:17px;border-width:3px}.mascot-message{right:101px;bottom:79px;width:min(178px,calc(100vw - 114px));padding:9px 11px;border-radius:12px}.mascot-message:after{right:-7px;bottom:14px;width:14px;height:14px}.mascot-message strong{font-size:.76rem}.mascot-message>span{font-size:.64rem;line-height:1.35}}
 @media(prefers-reduced-motion:reduce){.mascot-button,.mascot-message{transition:none;animation:none}}
 /* Hero beranda dengan latar Gedung BHP Medan */
 .hero{min-height:650px;background-image:linear-gradient(90deg,rgba(4,35,64,.94) 0%,rgba(5,48,85,.84) 42%,rgba(5,48,85,.46) 70%,rgba(5,48,85,.2) 100%),url("bhp-medan-building.jpeg");background-position:center center;background-size:cover;background-repeat:no-repeat}
@@ -508,10 +509,10 @@ button,input,select,textarea{font:inherit}
 @media(max-width:760px){.survey-landing-page .survey-choice-panel{padding-top:18px}}
 
 /* Maskot beranda tetap ringkas agar tidak menutupi menu layanan. */
-.home-app-page .welcome-mascot{right:4px;bottom:0;transform:scale(.96);transform-origin:right bottom}
+.home-app-page .welcome-mascot{left:4px;bottom:0;transform:scale(.96);transform-origin:left bottom}
 @media(max-width:620px){
   .home-app-page .app-launcher{padding-bottom:max(150px,calc(135px + env(safe-area-inset-bottom)))}
-  .home-app-page .welcome-mascot{right:2px;bottom:0;transform:scale(1)}
+  .home-app-page .welcome-mascot{left:2px;bottom:0;transform:scale(1)}
   .home-app-page .mascot-message{right:104px;bottom:82px;width:min(172px,calc(100vw - 118px))}
 }
 
@@ -1212,21 +1213,6 @@ a,button,[role="button"],.service-card,.survey-option,.staff-choice,.mascot-butt
 @media(max-width:620px){.app-launcher{min-height:calc(100dvh - 72px);padding:18px 16px max(18px,env(safe-area-inset-bottom))}.app-welcome{margin-bottom:13px}.app-welcome>p{margin-bottom:11px;font-size:.78rem}.operational-notice{padding:9px 11px;gap:9px}.operational-notice-icon{width:32px;height:32px}.operational-notice p{gap:0 9px;font-size:.6rem}.app-service-grid{gap:12px}.app-service-button{min-height:clamp(118px,34vw,145px);padding:14px 10px;border-radius:18px;font-size:.92rem}.app-service-icon{width:54px;height:54px;border-radius:15px}.app-service-icon svg{width:27px;height:27px}}
 @media(max-height:480px) and (orientation:landscape){.app-service-grid{width:min(680px,100%);gap:10px}.app-service-button{min-height:42vh;padding:12px;gap:8px}.app-service-icon{width:48px;height:48px}}
 @media(prefers-reduced-motion:reduce){.app-service-button{transition:none}}
-.pwa-install-panel{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:11px;margin-top:14px;padding:12px 13px;border:1px solid #cadbea;border-radius:15px;background:rgba(255,255,255,.9);box-shadow:0 9px 24px rgba(17,52,88,.08);text-align:left}
-.pwa-install-panel[hidden],.pwa-ios-instructions[hidden],.pwa-install-button[hidden]{display:none!important}
-.pwa-install-icon{width:40px;height:40px;display:grid;place-items:center;flex:none;border-radius:11px;background:linear-gradient(145deg,var(--navy),var(--blue));color:#fff}
-.pwa-install-icon svg{width:22px;height:22px;fill:currentColor}
-.pwa-install-copy{min-width:0;display:flex;flex-direction:column;gap:2px}
-.pwa-install-copy strong{color:var(--navy);font:800 .78rem Manrope,sans-serif}
-.pwa-install-copy span{color:var(--muted);font-size:.64rem;line-height:1.35}
-.pwa-install-actions{display:flex;align-items:center;gap:6px}
-.pwa-install-button{min-height:36px;padding:8px 12px;border:0;border-radius:9px;background:var(--blue);color:#fff;font:800 .67rem Manrope,sans-serif;cursor:pointer;white-space:nowrap;transition:transform .2s,box-shadow .2s}
-.pwa-install-button:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(28,90,166,.2)}
-.pwa-install-button:focus-visible,.pwa-install-dismiss:focus-visible{outline:3px solid rgba(28,90,166,.25);outline-offset:2px}
-.pwa-install-dismiss{width:30px;height:30px;padding:0;border:0;border-radius:50%;background:#edf3f8;color:var(--muted);font:700 1.1rem/1 sans-serif;cursor:pointer}
-.pwa-ios-instructions{grid-column:1/-1;padding:10px 11px;border-radius:9px;background:#eef5fb;color:var(--muted);font-size:.66rem;line-height:1.5}
-@media(max-width:620px){.pwa-install-panel{grid-template-columns:auto minmax(0,1fr);padding:10px}.pwa-install-actions{grid-column:1/-1;justify-content:flex-end}.pwa-install-button{flex:1}.pwa-ios-instructions{font-size:.64rem}}
-
 /* Komposisi beranda mengikuti tampilan aplikasi layanan BHP */
 .home-app-page{overflow:auto;background:linear-gradient(145deg,rgba(244,247,251,.96),rgba(255,250,232,.94))}
 .home-app-page:before,.home-app-page:after{content:"";position:fixed;z-index:-1;pointer-events:none;transform:rotate(32deg);background:linear-gradient(135deg,rgba(27,44,93,.045),rgba(255,203,5,.035))}
@@ -1237,19 +1223,21 @@ a,button,[role="button"],.service-card,.survey-option,.staff-choice,.mascot-butt
 .home-app-page .brand-text strong{font-size:1.1rem}
 .home-app-page .brand-text small{font-size:.72rem}
 .app-launcher{min-height:calc(100dvh - 92px);align-items:start;padding-top:30px}
-.app-launcher-content{width:min(600px,100%)}
+.app-launcher-content{width:min(500px,100%)}
 .app-welcome{text-align:center;margin-bottom:18px}
-.app-welcome h1{text-transform:uppercase;font-size:clamp(1.7rem,5vw,2.35rem);line-height:1.12;letter-spacing:-.025em}
+.app-welcome h1{text-transform:uppercase;font-size:clamp(1.18rem,3.2vw,1.5rem);line-height:1.22;letter-spacing:0;word-spacing:.12em}
 .app-welcome>p{margin:8px 0 18px;color:#303b51;font-size:1rem}
 .operational-notice{text-align:left;padding:13px 15px;border:0;border-radius:14px;background:linear-gradient(135deg,#202e5a,#293664);color:#fff;box-shadow:0 10px 24px rgba(27,44,93,.2)}
 .operational-notice-icon{width:40px;height:40px;background:transparent;color:var(--gold)}
 .operational-notice-icon svg{width:31px;height:31px}
 .operational-notice>div{flex:1;min-width:0}
-.operational-notice strong{display:inline;margin-right:3px;color:#fff;font-size:.75rem}
-.operational-notice p{display:inline;margin:0;color:#fff;font-size:.75rem;line-height:1.4}
+.operational-notice-copy{display:grid;gap:3px;text-align:center}
+.operational-notice-schedule{display:flex;justify-content:center;gap:18px}
+.operational-notice strong{display:block;margin:0;color:#fff;font-size:.75rem}
+.operational-notice p{display:block;margin:0;color:#fff;font-size:.75rem;line-height:1.4}
 .operational-notice-arrow{flex:none;color:#fff;font:500 2.2rem/1 sans-serif;opacity:.9}
-.app-service-grid{gap:16px}
-.app-service-button{min-height:205px;border-radius:24px;background:#f2f6fc;border:2px solid #41639a;box-shadow:0 12px 27px rgba(24,47,82,.1);font-size:1.13rem;line-height:1.25;text-align:center}
+.app-service-grid{width:100%;gap:14px}
+.app-service-button{min-height:168px;border-radius:21px;background:#f2f6fc;border:2px solid #41639a;box-shadow:0 12px 27px rgba(24,47,82,.1);font-size:.98rem;line-height:1.25;text-align:center}
 .app-service-button:nth-child(2){border-color:#e1c071;background:#fff5d9}
 .app-service-button:nth-child(3){border-color:#cc6b70;background:#ffeded}
 .app-service-button:nth-child(4){border-color:#dfe3eb;background:#fff}
@@ -1263,8 +1251,8 @@ a,button,[role="button"],.service-card,.survey-option,.staff-choice,.mascot-butt
   .home-app-page .brand-text{flex:1;min-width:0}
   .home-app-page .brand-text strong{max-width:none;overflow:visible;text-overflow:clip;white-space:nowrap;font-size:clamp(.78rem,3.7vw,.91rem);letter-spacing:-.02em}
   .home-app-page .brand-text small{font-size:.62rem}
-  .app-launcher{min-height:calc(100dvh - 82px);padding:24px 14px max(24px,env(safe-area-inset-bottom))}
-  .app-welcome h1{font-size:clamp(1.55rem,7.3vw,2rem)}
+  .app-launcher{min-height:calc(100dvh - 82px);padding:24px max(36px,env(safe-area-inset-right)) max(170px,calc(150px + env(safe-area-inset-bottom))) max(36px,env(safe-area-inset-left))}
+  .app-welcome h1{font-size:clamp(1.05rem,4.8vw,1.3rem);line-height:1.24;word-spacing:.1em}
   .app-welcome>p{font-size:.88rem;margin:7px 0 15px}
   .operational-notice{padding:10px 11px}
   .operational-notice-icon{width:35px;height:35px}
@@ -1272,7 +1260,9 @@ a,button,[role="button"],.service-card,.survey-option,.staff-choice,.mascot-butt
   .operational-notice strong,.operational-notice p{font-size:.66rem}
   .operational-notice-arrow{font-size:1.8rem}
   .app-service-grid{gap:12px}
-  .app-service-button{min-height:clamp(150px,43vw,190px);padding:15px 9px;border-radius:21px;font-size:.93rem}
+  .app-service-button{min-height:clamp(120px,33vw,148px);padding:12px 7px;border-radius:18px;font-size:.81rem}
+  .app-service-icon{width:49px;height:49px;border-radius:14px}
+  .app-service-icon svg{width:24px;height:24px}
 }
 @media(max-width:340px){.home-app-page .brand-logo{width:48px;height:48px}.home-app-page .brand-text strong{font-size:.75rem}}
 
@@ -1344,6 +1334,7 @@ a,button,[role="button"],.service-card,.survey-option,.staff-choice,.mascot-butt
     font-size:clamp(.74rem,3.1vw,.88rem);
     letter-spacing:.075em;
   }
+  .operational-notice-schedule{display:grid;gap:3px}
 }
 @media(max-width:360px){
   .interactive-service-page .page-hero-kicker,
@@ -1351,6 +1342,90 @@ a,button,[role="button"],.service-card,.survey-option,.staff-choice,.mascot-butt
     font-size:clamp(.68rem,2.95vw,.76rem);
     letter-spacing:.055em;
   }
+}
+
+/* Katalog delapan layanan publik BHP. */
+.public-services-content{padding-top:18px}
+.public-service-notice{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 20px;margin-bottom:18px;padding:18px 20px;border:1px solid #d5e2ec;border-left:5px solid var(--gold);border-radius:15px;background:#fff;color:var(--navy);box-shadow:0 10px 28px rgba(17,52,88,.07)}
+.public-service-notice strong{font:800 .9rem Manrope,sans-serif}
+.public-service-notice p{margin:0;color:var(--muted);font-size:.78rem;line-height:1.55}
+.public-service-notice a{grid-column:2;grid-row:1/3;align-self:center;padding:9px 12px;border-radius:9px;background:#eaf3fb;color:var(--blue);font-size:.7rem;font-weight:800;white-space:nowrap}
+.public-service-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.public-service-card{overflow:hidden;border:1px solid #d5e2ec;border-radius:17px;background:#fff;box-shadow:0 10px 28px rgba(17,52,88,.07)}
+.public-service-card[open]{grid-column:1/-1;border-color:#98bce0;box-shadow:0 16px 36px rgba(17,52,88,.11)}
+.public-service-card summary{min-height:128px;display:grid;grid-template-columns:50px minmax(0,1fr) 28px;align-items:center;gap:14px;padding:18px;cursor:pointer;list-style:none}
+.public-service-card summary::-webkit-details-marker{display:none}
+.public-service-number{width:50px;height:50px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(145deg,var(--navy),var(--blue));color:#fff;font:800 .9rem Manrope,sans-serif}
+.public-service-card summary>span:nth-child(2){min-width:0}
+.public-service-card summary small,.public-service-card summary strong,.public-service-card summary em{display:block}
+.public-service-card summary small{margin-bottom:3px;color:var(--blue);font-size:.58rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.public-service-card summary strong{color:var(--navy);font:800 1rem Manrope,sans-serif}
+.public-service-card summary em{margin-top:5px;color:var(--muted);font-size:.72rem;font-style:normal;line-height:1.45}
+.public-service-card summary>b{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:#edf4fa;color:var(--blue);font:700 1.25rem/1 sans-serif;transition:transform .2s}
+.public-service-card[open] summary>b{transform:rotate(45deg)}
+.public-service-detail{display:grid;grid-template-columns:1.2fr .8fr 1fr;gap:20px;padding:20px 24px 24px;border-top:1px solid #e1e9ef;background:#f8fbfd}
+.public-service-detail section{min-width:0}
+.public-service-detail h2{margin:0 0 9px;color:var(--navy);font-size:.82rem}
+.public-service-detail p,.public-service-detail li{color:var(--muted);font-size:.72rem;line-height:1.55}
+.public-service-detail ul,.public-service-detail ol{margin:0;padding-left:18px}
+.public-service-detail .service-document-note{margin:9px 0 0;font-size:.65rem}
+@media(max-width:760px){
+  .public-service-list{grid-template-columns:1fr}
+  .public-service-card[open]{grid-column:auto}
+  .public-service-detail{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .public-services-page .service-form-hero h1{font-size:clamp(1.55rem,7.6vw,2rem)}
+  .public-service-notice{grid-template-columns:1fr;padding:15px}
+  .public-service-notice a{grid-column:auto;grid-row:auto;justify-self:start;margin-top:4px}
+  .public-service-card summary{min-height:116px;grid-template-columns:44px minmax(0,1fr) 26px;gap:11px;padding:15px 13px}
+  .public-service-number{width:44px;height:44px;border-radius:12px}
+  .public-service-card summary strong{font-size:.92rem}
+  .public-service-card summary em{font-size:.68rem}
+  .public-service-detail{padding:18px}
+}
+
+/* Katalog layanan membuka halaman detail terpisah. */
+.home-app-page .app-welcome h1{font-size:clamp(1.35rem,4vw,1.8rem);line-height:1.14}
+.public-service-list .public-service-card{min-height:138px;display:grid;grid-template-columns:50px minmax(0,1fr) 32px;align-items:center;gap:14px;padding:19px;border:1px solid #d5e2ec;border-radius:17px;background:#fff;color:inherit;box-shadow:0 10px 28px rgba(17,52,88,.07);transition:transform .2s,border-color .2s,box-shadow .2s}
+.public-service-list .public-service-card:hover{transform:translateY(-3px);border-color:#7ba9d6;box-shadow:0 15px 34px rgba(17,52,88,.12)}
+.public-service-card-copy{min-width:0}
+.public-service-card-copy small,.public-service-card-copy strong,.public-service-card-copy em{display:block}
+.public-service-card-copy small{margin-bottom:3px;color:var(--blue);font-size:.58rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.public-service-card-copy strong{color:var(--navy);font:800 1rem Manrope,sans-serif}
+.public-service-card-copy em{margin-top:5px;color:var(--muted);font-size:.72rem;font-style:normal;line-height:1.45}
+.public-service-open{width:32px;height:32px;display:grid;place-items:center;border-radius:50%;background:#edf4fa;color:var(--blue);font:700 1.45rem/1 sans-serif}
+.public-service-source{margin:18px 0 0;color:var(--muted);font-size:.68rem;text-align:center}
+.public-service-detail-content{padding-top:18px}
+.service-detail-meta{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.service-detail-meta article{padding:18px 20px;border:1px solid #d5e2ec;border-radius:15px;background:#fff;box-shadow:0 10px 28px rgba(17,52,88,.06)}
+.service-detail-meta small,.service-detail-meta strong{display:block}
+.service-detail-meta small{margin-bottom:5px;color:var(--blue);font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.service-detail-meta strong{color:var(--navy);font:.8rem/1.5 Manrope,sans-serif}
+.service-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.service-detail-panel{position:relative;padding:24px;border:1px solid #d5e2ec;border-radius:18px;background:#fff;box-shadow:0 12px 30px rgba(17,52,88,.07)}
+.service-detail-flow{grid-column:1/-1}
+.service-detail-index{display:inline-grid;place-items:center;width:38px;height:30px;margin-bottom:10px;border-radius:9px;background:#eaf3fb;color:var(--blue);font:800 .68rem Manrope,sans-serif}
+.service-detail-panel h2{margin:0 0 13px;color:var(--navy);font-size:1rem}
+.service-detail-heading{display:flex;align-items:center;gap:12px;margin-bottom:15px}.service-detail-heading .service-detail-index{flex:0 0 38px;margin:0}.service-detail-heading h2{margin:0}
+.service-detail-panel ol,.service-detail-panel ul{display:grid;gap:8px;margin:0;padding-left:21px}
+.service-detail-panel li{padding-left:3px;color:var(--muted);font-size:.78rem;line-height:1.55}
+.service-detail-tariff{border-top:1px solid #d5e2ec}
+.service-detail-flow ol{counter-reset:service-flow;grid-template-columns:repeat(2,minmax(0,1fr));padding:0;list-style:none}
+.service-detail-flow li{counter-increment:service-flow;position:relative;min-height:62px;padding:12px 12px 12px 43px;border-radius:12px;background:#f5f9fc}
+.service-detail-flow li:before{content:counter(service-flow);position:absolute;left:11px;top:11px;width:23px;height:23px;display:grid;place-items:center;border-radius:50%;background:var(--blue);color:#fff;font:800 .6rem Manrope,sans-serif}
+.service-source-note{margin-top:16px;padding:18px 20px;border-left:4px solid var(--gold);border-radius:13px;background:#fff;color:var(--navy)}
+.service-source-note strong{font:800 .82rem Manrope,sans-serif}
+.service-source-note p{margin:4px 0 9px;color:var(--muted);font-size:.7rem;line-height:1.5}
+.service-source-note a{color:var(--blue);font-size:.7rem;font-weight:800}
+@media(max-width:620px){
+  .home-app-page .app-welcome h1{font-size:clamp(1.18rem,5.8vw,1.48rem)}
+  .public-service-list .public-service-card{min-height:126px;grid-template-columns:44px minmax(0,1fr) 28px;gap:11px;padding:15px 13px}
+  .public-service-open{width:28px;height:28px}
+  .service-detail-meta,.service-detail-grid{grid-template-columns:1fr}
+  .service-detail-flow{grid-column:auto}
+  .service-detail-flow ol{grid-template-columns:1fr}
+  .service-detail-panel{padding:19px 17px}
 }
 
 /* Banner admin tanpa garis kuning dan grafik dalam palet biru-kuning. */
@@ -1526,3 +1601,43 @@ a,button,[role="button"],.service-card,.survey-option,.staff-choice,.mascot-butt
 
 /* Card Batamen memakai tepi biru yang sama dengan layanan informasi. */
 .home-app-page .app-service-button:nth-child(4){border-color:#41639a}
+
+/* Konteks layanan sebelum survei petugas. */
+.survey-context-dialog .service-dialog-card{gap:14px}
+.survey-context-dialog .service-dialog-icon{width:54px;height:54px;background:#eaf3fb;color:var(--blue);box-shadow:inset 0 0 0 2px rgba(11,95,172,.15)}
+.service-dialog-field select{width:100%;min-height:50px;padding:11px 42px 11px 14px;border:1px solid var(--line);border-radius:11px;background:#f9fbfd;color:var(--ink);font:600 .9rem DM Sans,sans-serif}
+.service-dialog-field select:focus{outline:3px solid rgba(11,95,172,.14);border-color:var(--blue)}
+.selected-service-context{margin:4px 0 16px;color:var(--muted);font-size:.82rem}
+.selected-service-context strong{color:var(--blue)}
+.staff-choice[hidden]{display:none!important}
+.staff-service-empty{margin:18px 0 0;padding:16px;border-radius:12px;background:#f3f7fb;color:var(--muted);font-size:.82rem;text-align:center}
+.staff-service-field{min-width:0;margin:0;padding:0;border:0}
+.staff-service-field legend{margin-bottom:10px;color:var(--navy);font-size:.76rem;font-weight:800}
+.staff-service-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.staff-service-options label{display:flex;align-items:flex-start;gap:9px;padding:10px 11px;border:1px solid var(--line);border-radius:10px;background:#f8fbfd;color:var(--ink);font-size:.72rem;line-height:1.35;cursor:pointer}
+.staff-service-options input{flex:0 0 auto;margin-top:2px;accent-color:var(--blue)}
+.staff-service-count{display:block;margin-top:4px;color:var(--muted);font-size:.62rem}
+@media(max-width:620px){
+  .survey-context-dialog .service-dialog-card{padding-top:25px}
+  .staff-service-options{grid-template-columns:1fr}
+}
+
+/* Lima bintang memenuhi lebar kartu pertanyaan pada ponsel. */
+@media(max-width:620px){
+  .staff-survey-public-page .rating-row .stars{width:100%;justify-content:space-between}
+  .staff-survey-public-page .rating-row .stars label{flex:0 0 auto;padding:5px;font-size:clamp(2rem,10vw,2.55rem)}
+}
+
+/* Petugas tetap terlihat ketika sudah dinilai, tetapi tidak dapat dipilih lagi hari ini. */
+.staff-choice.is-unavailable label{border-color:#e3e8ed;background:#f2f4f6;cursor:not-allowed;filter:grayscale(.45);opacity:.7}
+.staff-choice.is-unavailable label:after{content:"Sudah dinilai";margin-left:auto;padding:5px 8px;border-radius:999px;background:#e0e5e9;color:#596a76;font-size:.56rem;font-weight:800;white-space:nowrap}
+.staff-choice-unavailable{margin:7px 2px 0;padding:9px 10px;border-radius:8px;background:#fff0f0;color:#a73339;font-size:.66rem;line-height:1.45}
+.survey-respondent-phone{margin-top:8px!important;color:var(--muted);font-size:.78rem}.survey-respondent-phone strong{color:var(--navy)}
+.mascot-batamen-icon{position:fixed;z-index:61;right:20px;bottom:max(24px,env(safe-area-inset-bottom));width:70px;height:70px;padding:3px;display:grid;place-items:center;overflow:hidden;border:3px solid #fff;border-radius:20px;background:#21205b;box-shadow:0 10px 24px rgba(3,30,55,.28);transition:transform .2s,box-shadow .2s}.mascot-batamen-icon img{width:100%;height:100%;display:block;border-radius:14px;object-fit:cover}.mascot-batamen-icon:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 28px rgba(3,30,55,.34)}.mascot-batamen-icon:focus-visible{outline:4px solid rgba(28,90,166,.3);outline-offset:3px}
+@media(max-width:620px){.mascot-batamen-icon{right:12px;bottom:max(17px,env(safe-area-inset-bottom));width:60px;height:60px;padding:2px;border-radius:18px}.mascot-batamen-icon img{border-radius:13px}}
+
+.pwa-install-panel{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:10px;width:min(390px,88%);margin:34px auto 0;padding:10px 12px;border:1px solid #cadbea;border-radius:14px;background:rgba(255,255,255,.92);box-shadow:0 9px 24px rgba(17,52,88,.08);text-align:left}.pwa-install-panel[hidden]{display:none!important}
+.pwa-install-icon{width:42px;height:42px;padding:0;display:grid;place-items:center;border:0;border-radius:11px;background:linear-gradient(145deg,var(--navy),var(--blue));color:#fff;cursor:pointer}.pwa-install-icon svg{width:23px;height:23px;fill:currentColor}.pwa-install-icon:disabled{cursor:not-allowed;opacity:.48}.pwa-install-icon:focus-visible{outline:4px solid rgba(28,90,166,.25);outline-offset:2px}.pwa-install-copy{min-width:0;display:flex;flex-direction:column;gap:2px}.pwa-install-copy strong{color:var(--navy);font:800 .75rem Manrope,sans-serif}.pwa-install-copy span{color:var(--muted);font-size:.61rem;line-height:1.35}.pwa-ios-instructions{grid-column:1/-1;padding:9px 10px;border-radius:9px;background:#eef5fb;color:var(--muted);font-size:.64rem;line-height:1.5}.pwa-ios-instructions[hidden],.pwa-install-icon[hidden]{display:none!important}
+@media(max-width:620px){.pwa-install-panel{width:min(330px,90%);margin-top:30px;padding:9px 10px}.pwa-install-copy strong{font-size:.7rem}.pwa-install-copy span{font-size:.58rem}}
+.button:disabled{cursor:wait;opacity:.68;transform:none}
+@media(max-width:620px){.staff-choice.is-unavailable label:after{font-size:.52rem}.staff-choice-unavailable{font-size:.64rem}}
