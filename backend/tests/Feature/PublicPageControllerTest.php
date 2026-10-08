@@ -59,6 +59,11 @@ class PublicPageControllerTest extends TestCase
         $this->get(route('information.index'))
             ->assertOk()
             ->assertSee('Pusat Informasi Pelayanan Publik')
+            ->assertSee('PPID BHP Medan')
+            ->assertSee('Informasi yang Anda cari belum tersedia? Akses informasi publik lainnya di PPID BHP Medan.')
+            ->assertSee('href="https://bhpmedan.kemenkum.go.id/pusat-informasi/ppid/tentang-ppid"', false)
+            ->assertSee('ppid-access-card', false)
+            ->assertSeeInOrder(['Manual IKU Kemenkum', 'PPID BHP Medan', 'Terhubung dengan kami'])
             ->assertDontSee('Pusat Informasi Terpadu');
 
         $this->get(route('surveys.index'))

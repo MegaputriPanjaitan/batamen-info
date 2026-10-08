@@ -43,4 +43,8 @@ return [
         'url' => env('SPKP_SPAK_SURVEY_URL', 'https://survei-bsk.kemenkum.go.id/ly/ds1Ca2QS'),
     ],
 
+    'ppid' => [
+        'url' => env('PPID_URL', 'https://bhpmedan.kemenkum.go.id/pusat-informasi/ppid/tentang-ppid'),
+    ],
+
 ];
